@@ -1,0 +1,7 @@
+this is an apple
+:q
+wa
+:e apples .txt
+written here 
+BAda bing bada boom
+
