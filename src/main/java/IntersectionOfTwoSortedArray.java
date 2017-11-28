@@ -67,7 +67,35 @@ public class IntersectionOfTwoSortedArray {
 	 *            sorted input array2
 	 * @return the intersection of the two arrays, empty array is no intersection
 	 */
-	public static int[] intersection(final int[] array1, final int[] array2) {
-		return new int[0];
+	public static int[] intersection(final int[] array1, final int[] array2){
+	int[] outArray = new int[array1.length + array2.length];
+	for (int co = 0; co < outArray.length; co += 1) {
+		outArray[co] = Integer.MAX_VALUE;
+	}
+	int arc1 = 0;
+	int arc2 = 0;
+	int oc1 = 0;	
+	for (int i = 0; i < array1.length + array2.length; i += 1) {
+		if (arc1 >=  array1.length || arc2 >= array2.length) {
+			break;
+		}
+		if (array1[arc1] > array2[arc2]) {
+			arc2 += 1; 
+		} else if (array1[arc1] < array2[arc2]) {
+			arc1 += 1;
+		} else if (array1[arc1] == array2[arc2]) {
+			
+			outArray[oc1] = array1[arc1];
+			arc1 += 1;
+			arc2 += 1;
+			oc1 += 1;	
+		} 
+		
+	}
+	int[] fin = new int[oc1];
+	for (int f = 0; f <= oc1 -1; f += 1) {
+		fin[f] = outArray[f];
+	}
+		return fin;
 	}
 }
